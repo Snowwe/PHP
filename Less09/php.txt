@@ -1,0 +1,92 @@
+<?
+$host = "localhost";
+$db = "news";
+$user = "root";
+$pass = "";
+$db = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+
+$id = $_POST["NEW_ID"];
+
+$stmt = $db->prepare( "SELECT * FROM news WHERE id=:id" );
+$stmt->bindParam( 'id', $id );
+if ( !$stmt->execute() )
+{
+    die('Error');
+}
+
+$post = [];
+if ( $stmt->rowCount() == 1 )
+{
+    $post = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+}
+
+//$news = [];
+//while ( $row = $stmt->fetch(PDO::FETCH_ASSOC) )
+//{
+//    $news[] = $row;
+//}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/FS_Vik.ico">
+
+</head>
+<body>
+<?php //if ( !empty( $post ) ): ?>
+<!--    <h4>--><?//= $post['name'] ?><!--</h4>-->
+<!--    <p>--><?//= $post['content'] ?><!--</p>-->
+<?php //endif; ?>
+<header>
+    <div> PDO
+    </div>
+</header>
+
+<div>
+    <ul class="navigation">
+        <li>
+            <a href="index.php">
+                insert
+            </a>
+        </li>
+        <li>
+            <a href="index2.php">
+                select
+            </a>
+        </li>
+
+    </ul>
+</div>
+<br><br><br>
+
+<h2>НовостЪ</h2>
+<form action="" method="post">
+    <div>
+        <label for="NEW_ID">ID New</label><br/>
+        <input type="number" name="NEW_ID" id="NEW_ID" min="0" max="10">
+    </div>
+
+
+    <input type="submit" value="submit">
+    <?php if ( !empty( $post ) ): ?>
+        <h4>New <br></h4>
+       <p>
+           <?= $post['name'] ?></p>
+        <h4>Content</h4>
+        <p><?= $post['content'] ?></p>
+    <?php endif; ?>
+    <footer>
+
+        <p> FS Vik &nbsp; _2017_ &nbsp; vikmillion@gmail.com</p>
+    </footer>
+</body>
+</html>
+

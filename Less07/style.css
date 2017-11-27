@@ -1,0 +1,80 @@
+body {
+    font: 18px Comic Sans MS;
+    background-color: #F7F7BD;
+    color: goldenrod;
+}
+
+input {
+    border-radius: 10px;
+    font: 16px Comic Sans MS;
+    color: #0022FF;
+    padding-left: 10px;
+    background-color: #FFDD00;
+    width: 200px;
+}
+
+select {
+    border-radius: 10px;
+    font: 16px Comic Sans MS;
+    color: #0022FF;
+    padding-left: 10px;
+    background-color: #FFDD00;
+    width: 210px;
+}
+
+button {
+    width: 100px;
+    min-height: 30px;
+    margin-bottom: 10px;
+    background-color: #D1C5B5;
+    color: #2E3A4A;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: gainsboro;
+    color: #232323;
+}
+
+button:active {
+    width: 110px;
+}
+
+.error input {
+    border: 2px solid red;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+#task2,
+#task2rez {
+    width: 540px;
+    height: 30px;
+    font: 18px Comic Sans MS;
+}
+textarea {
+    width: 540px;
+    height: 150px;
+    font: 16px Comic Sans MS;
+    background-color: #F7F7BD;
+}        
+h3{
+    color: brown;
+}
+table,
+tr,
+td
+ {
+    border: 2px solid goldenrod;
+    color: green;
+    padding: 7px;
+    border-collapse: collapse;
+    border-radius: 1px;
+}
+.aling{
+    padding:auto;
+    font: 14px Comic Sans MS;
+}
